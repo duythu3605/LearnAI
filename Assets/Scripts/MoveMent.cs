@@ -35,7 +35,7 @@ public class MoveMent : MonoBehaviour
             SetDirection(this.nextDirection);
         }
     }
-    private void ResetState()
+    public void ResetState()
     {
         this.speedMultiplayer = 1.0f;
         this.direction = this.initialDirection;

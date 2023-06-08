@@ -11,8 +11,12 @@ GameObject:
   - component: {fileID: 1381052019192436102}
   - component: {fileID: 1381052019192436100}
   - component: {fileID: 1381052019192436101}
-  - component: {fileID: 1381052019192436096}
   - component: {fileID: 1381052019192436097}
+  - component: {fileID: 1381052019192436096}
+  - component: {fileID: 7509651025336258898}
+  - component: {fileID: 57624642820387382}
+  - component: {fileID: 7780140548471006722}
+  - component: {fileID: 2052172552374534173}
   m_Layer: 0
   m_Name: Ghost_Clyde
   m_TagString: Untagged
@@ -75,20 +79,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.49
---- !u!114 &1381052019192436096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381052019192436122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6b9db548422fdb4d917b7cb90fe6e1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: 200
+  m_Radius: 0.5
 --- !u!114 &1381052019192436097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,10 +94,83 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   speedMultiplayer: 1
-  initialDirection: {x: 0, y: 0}
+  initialDirection: {x: 0, y: 1}
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
+--- !u!114 &1381052019192436096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381052019192436122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b9db548422fdb4d917b7cb90fe6e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 200
+  initialBehavior: {fileID: 7509651025336258898}
+  target: {fileID: 0}
+--- !u!114 &7509651025336258898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381052019192436122}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2215c28fac690d4890460867b45c25f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 16
+  inside: {fileID: 0}
+  outside: {fileID: 0}
+--- !u!114 &57624642820387382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381052019192436122}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd2417c7584a12468f33b463207996d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 7
+--- !u!114 &7780140548471006722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381052019192436122}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030951c50c1f57840911e8209faaa700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 20
+--- !u!114 &2052172552374534173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381052019192436122}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b3f885ca1160447a91b18b4508ac39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 8
+  body: {fileID: 1618810620245115431}
+  eyes: {fileID: 8587576129453436352}
+  blue: {fileID: 2126352144790881460}
+  white: {fileID: 8992808897884381830}
 --- !u!1 &2173234199068256579
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2273879415847024269}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

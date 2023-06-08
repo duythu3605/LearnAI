@@ -36,7 +36,7 @@ public class AnimatorSprites : MonoBehaviour
         }
     }
 
-    private void Restart()
+    public void Restart()
     {
         this.animationFrame = -1;
         Advance();

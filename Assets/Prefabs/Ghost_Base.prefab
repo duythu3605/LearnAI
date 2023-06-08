@@ -115,6 +115,10 @@ GameObject:
   - component: {fileID: 2820127902774368790}
   - component: {fileID: 2820127902774368787}
   - component: {fileID: 2820127902774368786}
+  - component: {fileID: 5825679510691926894}
+  - component: {fileID: 4926436209630804}
+  - component: {fileID: 4821434994906123939}
+  - component: {fileID: 6201251254092427856}
   m_Layer: 0
   m_Name: Ghost_Base
   m_TagString: Untagged
@@ -209,6 +213,54 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &5825679510691926894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2820127902774368777}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd2417c7584a12468f33b463207996d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4926436209630804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2820127902774368777}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030951c50c1f57840911e8209faaa700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4821434994906123939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2820127902774368777}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b3f885ca1160447a91b18b4508ac39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6201251254092427856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2820127902774368777}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2215c28fac690d4890460867b45c25f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3035849328342345424
 GameObject:
   m_ObjectHideFlags: 0

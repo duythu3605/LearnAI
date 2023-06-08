@@ -45,9 +45,9 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < ghost.Length; i++)
         {
-            this.ghost[i].gameObject.SetActive(true);
+            this.ghost[i].ResetState();
         }
-        this.PacMan.gameObject.SetActive(true);
+        this.PacMan.ResetState();
     }
 
     private void GameOVer()
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         this.ghostMutilPlayer++;
     }
 
-    public void PacmanEaten(PacMan pacMan)
+    public void PacmanEaten()
     {
         this.PacMan.gameObject.SetActive(false);
 
@@ -105,6 +105,11 @@ public class GameManager : MonoBehaviour
     }
     public void PowerPelletEaten(PowerPellet _powerpellet)
     {
+        for(int i = 0; i < this.ghost.Length; i++)
+        {
+            this.ghost[i].ghostFrightened.Enable(_powerpellet.duration);
+        }
+
         PelletEaten(_powerpellet);
         CancelInvoke();
         Invoke(nameof(ResetGhostMutiplayer), _powerpellet.duration);
