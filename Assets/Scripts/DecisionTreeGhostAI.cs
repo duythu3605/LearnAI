@@ -23,10 +23,36 @@ public class DecisionTreeGhostAI : MonoBehaviour
 
     public bool PacManEatPower = false;
 
+
     private void Start()
     {
-        GetActionGhost(3);
-        GhostDead = true;
+        GetActionGhost(1);
+    }
+
+    private void Update()
+    {
+        if(currentState == ActionState.Scatter)
+        {
+            Debug.Log("Find new Position and go");
+        }
+        if (currentState == ActionState.Chassing)
+        {
+            Debug.Log("Find Position PacMan and chasing");
+        }
+        if (PacManEatPower)
+        {
+            Debug.Log("PacMan has power!");
+            GetActionGhost(3);
+            if (!GhostDead) return;
+            if (GhostDead)
+            {
+                GetActionGhost(4);
+            }
+        }
+        if (findPacMan)
+        {
+            ResetState();
+        }
     }
     public void GetActionGhost(int index)
     {        
@@ -34,7 +60,6 @@ public class DecisionTreeGhostAI : MonoBehaviour
         {
             case 0:
                 currentState = ActionState.InHome;
-                Debug.Log("HOme");
                 Home();
                 break;
             case 1:
@@ -51,6 +76,7 @@ public class DecisionTreeGhostAI : MonoBehaviour
                 break;
             case 4:
                 currentState = ActionState.Dead;
+                Debug.Log("Ghost Dead!");
                 Dead();
                 break;
             default:
@@ -59,8 +85,8 @@ public class DecisionTreeGhostAI : MonoBehaviour
     }
 
     private void ResetState()
-    {
-        GetActionGhost(0);
+    {        
+        GetActionGhost(0);  
     }
 
     private void Home()
@@ -90,6 +116,17 @@ public class DecisionTreeGhostAI : MonoBehaviour
     private void Dead()
     {
         Debug.Log("Dead");
+
+        StartCoroutine(Dead(20));
+    }
+
+    private IEnumerator Dead(float duration)
+    {
+        Debug.Log("Wait in home");
+
+        yield return new WaitForSeconds(20);
+        PacManEatPower = false;
+        GhostDead = false;
         ResetState();
     }
 
@@ -97,25 +134,28 @@ public class DecisionTreeGhostAI : MonoBehaviour
     {
         Debug.Log("Go Any Where");
         yield return new WaitForSeconds(duration);
+        GhostDead = false;
         GetActionGhost(2);
     }
 
     private IEnumerator TransChaing(float duration)
     {
-        Debug.Log("Go Find PacMan!");
+        Debug.Log("Go Find PacMan!");    
         yield return new WaitForSeconds(duration);
+        GhostDead = false;
         if (!findPacMan && !PacManEatPower)
         {
             GetActionGhost(1);
         }
-        if(findPacMan)
-        {
-            Debug.Log("Catched PacMan");
-            ResetState();
-        }
+
         if (PacManEatPower)
         {
             GetActionGhost(3);
+        }
+        if (findPacMan)
+        {
+            Debug.Log("Catched PacMan");
+            ResetState();
         }
 
     }
@@ -123,21 +163,19 @@ public class DecisionTreeGhostAI : MonoBehaviour
     private IEnumerator TransFrightened(float duration)
     {
         Debug.Log("Start Frighten");
+        
         yield return new WaitForSeconds(duration);
-
-        if (!GhostDead)
-        {
-            GetActionGhost(2);
-        }
-        if (GhostDead)
-        {
-            GetActionGhost(4);
-        }
+        GhostDead = false;
+        PacManEatPower = false;
+        GetActionGhost(2);
+        
     }
 
     private IEnumerator TransHome(float duration)
     {
         yield return new WaitForSeconds(duration);
+        findPacMan = false;
+        GhostDead = false;
         GetActionGhost(1);
     }
 }

@@ -166,7 +166,7 @@ MonoBehaviour:
   currentState: 0
   findPacMan: 0
   GhostDead: 0
-  PacManEatPower: 1
+  PacManEatPower: 0
 --- !u!4 &172570068
 Transform:
   m_ObjectHideFlags: 0
